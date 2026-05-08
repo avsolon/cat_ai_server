@@ -23,25 +23,34 @@ async function getAccessToken() {
       method: "POST",
 
       headers: {
+
         Authorization:
           `Basic ${process.env.GIGACHAT_AUTH_KEY}`,
 
-        RqUID: crypto.randomUUID(),
-
         "Content-Type":
           "application/x-www-form-urlencoded",
+
+        Accept: "application/json",
+
+        RqUID: crypto.randomUUID(),
       },
 
-      body: "scope=GIGACHAT_API_PERS",
+      body:
+        "scope=GIGACHAT_API_PERS",
     }
   );
 
-  const data = await response.json();
+  const data =
+    await response.json();
 
-  console.log("TOKEN RESPONSE:");
+  console.log(
+    "TOKEN RESPONSE:"
+  );
+
   console.log(data);
 
-  accessToken = data.access_token;
+  accessToken =
+    data.access_token;
 
   return accessToken;
 }
