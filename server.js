@@ -45,6 +45,8 @@ app.post("/chat", async (req, res) => {
 
     const data = await response.json();
 
+    console.log(JSON.stringify(data, null, 2));
+
     console.log(data);
 
     res.json({
